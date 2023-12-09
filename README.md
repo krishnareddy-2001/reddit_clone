@@ -45,18 +45,15 @@ Pre Requisites :
 
 Installation Steps 
 ```sh
-helm repo add stable https://charts.helm.sh/stable
-helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-helm search repo prometheus-community
-kubectl create namespace prometheus
-helm install stable prometheus-community/kube-prometheus-stack -n prometheus
-kubectl get pods -n prometheus
-kubectl get svc -n prometheus
+sudo apt-get update
+sudo apt install docker.io -y
+sudo usermod add -aG docker $USER && newgrp docker 
 ```
 
 Edit Prometheus Service (Edit type : LoadBalancer)
 ```sh
-kubectl edit svc stable-kube-prometheus-sta-prometheus -n prometheus
+sudo minikube start --driver=docker
+
 ```
 
 Edit Grafana Service (Edit type : LoadBalancer) 
