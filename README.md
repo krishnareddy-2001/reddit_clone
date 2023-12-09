@@ -54,22 +54,22 @@ Edit Prometheus Service (Edit type : LoadBalancer)
 ```sh
 New-Item -Path 'c:\' -Name 'minikube' -ItemType Directory -Force
 Invoke-WebRequest -OutFile 'c:\minikube\minikube.exe' -Uri 'https://github.com/kubernetes/minikube/releases/latest/download/minikube-windows-amd64.exe' -UseBasicParsing
-$oldPath = [Environment]::GetEnvironmentVariable('Path', [EnvironmentVariableTarget]::Machine)
-if ($oldPath.Split(';') -inotcontains 'C:\minikube'){
-  [Environment]::SetEnvironmentVariable('Path', $('{0};C:\minikube' -f $oldPath), [EnvironmentVariableTarget]::Machine)
-}
-sudo minikube start --driver=docker
+
+
 
 ```
 
 Edit Grafana Service (Edit type : LoadBalancer) 
 ```sh
-kubectl edit svc stable-grafana -n prometheus
+$oldPath = [Environment]::GetEnvironmentVariable('Path', [EnvironmentVariableTarget]::Machine)
+if ($oldPath.Split(';') -inotcontains 'C:\minikube'){
+  [Environment]::SetEnvironmentVariable('Path', $('{0};C:\minikube' -f $oldPath), [EnvironmentVariableTarget]::Machine)
+}
 ```
 
 Verify if service is changed to LoadBalancer and also to get the Load Balancer URL.
 ```sh
-kubectl get svc -n prometheus
+sudo minikube start --driver=docker
 ```
 
 Access Grafana Dashboard
