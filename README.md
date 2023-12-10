@@ -47,7 +47,7 @@ Installation Steps
 ```sh
 sudo apt-get update
 sudo apt install docker.io -y
-sudo usermod add -aG docker $USER && newgrp docker 
+sudo usermod -aG docker $USER && newgrp docker 
 ```
 
 Edit Prometheus Service (Edit type : LoadBalancer)
