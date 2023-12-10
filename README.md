@@ -71,11 +71,8 @@ sudo snap install kubectl --classic
 For creating a dashboard to monitor the cluster:
 
 ```sh
-Click '+' button on left panel and select ‘Import’.
-Enter 12740 dashboard id under Grafana.com Dashboard.
-Click ‘Load’.
-Select ‘Prometheus’ as the endpoint under prometheus data sources drop down.
-Click ‘Import’.
+ kubectl expose deployment reddit-deployment --type=NodePort
+kubectl port-forward svc/reddit-clone-service 3000:3000 --address 0.0.0.0
 ```
 
 
