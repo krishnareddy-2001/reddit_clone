@@ -64,8 +64,7 @@ minikube start --driver=docker
 
 Access Grafana Dashboard
 ```sh
-UserName: admin 
-Password: prom-operator
+sudo snap install kubectl --classic
 ```
 
 
