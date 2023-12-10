@@ -59,7 +59,7 @@ sudo install minikube-linux-amd64 /usr/local/bin/minikube
 
 Verify if service is changed to LoadBalancer and also to get the Load Balancer URL.
 ```sh
-sudo minikube start --driver=docker
+minikube start --driver=docker
 ```
 
 Access Grafana Dashboard
